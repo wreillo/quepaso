@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== BOX ICONS ==========-->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <title>QuePaso Website</title>
+    </head>
+    <body>
+
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-chevron-up scrolltop__icon'></i>
+        </a>
+
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo">#quepaso.info</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Inicio</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">Acerca</a></li>
+                        <li class="nav__item"><a href="#services" class="nav__link">Proceso</a></li>
+                        <li class="nav__item"><a href="#menu" class="nav__link">Reportes</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contactanos</a></li>
+
+                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--========== Inicio ==========-->
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__data">
+                        <h1 class="home__title">QuePaso</h1>
+                        <h2 class="home__subtitle">Informando la comunidad sobre averías</h2>
+                        <a href="#menu" class="button">Ver más</a>
+                    </div>
+                    <img src="assets/img/pr_blackout_circular.gif" alt="" class="home__img" style="width:80%;height:95%">
+                </div>
+            </section>
+            
+            <!--========== Acerca ==========-->
+            <section class="about section bd-container" id="about">
+                <div class="about__container  bd-grid">
+                    <div class="about__data">
+                        <span class="section-subtitle about__initial">Autor</span>
+                        <h2 class="section-title about__initial">Desarrollado por un camuyano</h2>
+                        <p class="about__description">¡Disfruto ayudar a otros y aprender cosas nuevas! Me apasiona la ciencia y las iniciativas comunitarias.</p>
+                        <a href="https://www.wreillo.com/" class="button" target="_blank">Mas acerca del autor</a>
+                    </div>
+
+                    <img src="assets/img/wr_logo.svg" alt="" class="about__img" style="width:80%;height:95%">
+                </div>
+            </section>
+
+            <!--========== Proceso ==========-->
+            <section class="services section bd-container" id="services">
+                <span class="section-subtitle">Averias</span>
+                <h2 class="section-title">El portal permite reportar averias por sectores</h2>
+
+                <div class="services__container  bd-grid">
+                    <div class="services__content">
+                        <img src="assets/img/camuy_escudo.svg" style="width: 15%; height: 30%">
+                        <h3 class="services__title">Municipio</h3>
+                        <p class="services__description">Al momento solo se encuentra el municipio de Camuy.</p>
+                    </div>
+
+                    <div class="services__content">
+                        <img src="assets/img/hierarchical.svg" style="width: 20%; height: 30%">
+                        <h3 class="services__title">Localizacion</h3>
+                        <p class="services__description">Te permite reportar averias por barrio y sector.</p>
+                    </div>
+
+                    <div class="services__content">
+                        <img src="assets/img/share_icon.svg" style="width: 20%; height: 30%;">
+                        <h3 class="services__title">Resultados</h3>
+                        <p class="services__description">Comparte los resultados en tu red social.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!--========== REPORTES ==========-->
+            <section class="menu section bd-container" id="menu">
+                <span class="section-subtitle">Acciones</span>
+                <h2 class="section-title">Explora e interactuá con el portal</h2>
+
+                <div class="menu__container bd-grid">
+                    <div class="button menu__content">
+                        <a href="camuy/index.html" target="_blank">
+                        <br><img src="assets/img/pin.svg" alt="" class="menu__img">
+                        <h3 class="menu__name">Reporta</h3>
+                        <span class="menu__detail" style="color:rgb(69, 69, 75)">¿No tienes luz en tu area? Reportarlo aquí</span>
+                        </a>
+                    </div>
+
+                    <div class="button menu__content">
+                        <a href="#home">
+                        <img src="assets/img/report.svg" alt="" class="menu__img" style="height: 40%">
+                        <h3 class="menu__name">Localización</h3>
+                        <span class="menu__detail" style="color:rgb(69, 69, 75)">Descubre si han reportado averías en tu barrio o sector</span>
+                        </a>
+                    </div>
+                    
+                    <div class="button menu__content">
+                        <a href="#home">
+                        <img src="assets/img/share_icon.svg" alt="" class="menu__img">
+                        <h3 class="menu__name">Resultados</h3>
+                        <span class="menu__detail" style="color:rgb(69, 69, 75)">Comparte los resultados en tu red social</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== MOVIL =======-->
+            <section class="app section bd-container">
+                <div class="app__container bd-grid">
+                    <div class="app__data">
+                        <span class="section-subtitle app__initial">Accessible</span>
+                        <h2 class="section-title app__initial">Navega el portal desde tu móvil</h2>
+                        <p class="app__description">Puedes utilizar tu teléfono celular y navegar el portal fácilmente.</p>
+                    </div>
+
+                    <img src="assets/img/movil-view.png" alt="" class="app__img" style="width: 80%; height: 100%">
+                </div>
+            </section>
+
+            <!--========== CONTACTANOS ==========-->
+            <section class="contact section bd-container" id="contact">
+                <div class="contact__container bd-grid">
+                    <div class="contact__data">
+                        <span class="section-subtitle contact__initial">Hablemos</span>
+                        <h2 class="section-title contact__initial">Contáctame</h2>
+                        <p class="contact__description">¿Tienes alguna sugerancia? ¿Quieres anadir tu municipio al portal? Por favor, no dudes en contarme.</p>
+                    </div>
+
+                    <div class="contact__button">
+                        <a href="mailto:quepaso.info@gmail.com" class="button">Contáctame ahora</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--========== FOOTER ==========-->
+        <footer class="footer section bd-container">
+            <div class="footer__container bd-grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">QuePaso</a>
+                    <span class="footer__description">Crowdsourcing</span>
+                    <div>
+                        <a href="https://www.facebook.com/quepaso.info" target="_blank" class="footer__social"><i class='bx bxl-facebook'></i></a>
+                        <a href="https://www.instagram.com/quepasa.info" target="_blank" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                        <a href="https://twitter.com/quepaso_info" target="_blank" class="footer__social"><i class='bx bxl-twitter'></i></a>
+                    </div>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Información</h3>
+                    <ul>
+                        <li><a href="https://github.com/wrodriguezz/quepaso" class="footer__link">Codigo</a></li>
+                        <li><a href="#contact" class="footer__link">Contactame</a></li>
+                        <li><a href="#" class="footer__link">Privacy policy</a></li>
+                        <li><a href="#" class="footer__link">Terms of services</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
