@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.iife.js" defer init></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet">
+  <!--========== BOX ICONS ==========-->
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+  <!--========== CSS ==========-->
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <title>Averias en Camuy</title>
+</head>
+
+<body>
+  
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
+    nonce="njQzd8Cw"></script>
+  <!--========== SCROLL TOP ==========-->
+  <a href="#" class="scrolltop" id="scroll-top">
+    <i class='bx bx-chevron-up scrolltop__icon'></i>
+  </a>
+
+  <!--========== HEADER ==========-->
+  <header class="l-header" id="header" style="font-size: 13px;">
+    <nav class="nav bd-container">
+      <a href="#" class="nav__logo">#quepaso.info</a>
+      <div class="fb-like" data-href="https://www.facebook.com/quepaso.info" data-width=""
+      data-layout="standard" data-action="like" data-size="small" data-share="true" style="text-align: center"></div>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+        </ul>
+      </div>
+
+      <div class="nav__toggle" id="nav-toggle">
+        <i class='bx bx-menu'></i>
+      </div>
+    </nav>
+  </header>
+  <!-- Donut chart-->
+  <section class="home" id="home">
+    <div class="home__container bd-grid">
+      <div class="home__data">
+        <h1 class="home__title">Areas sin Servicio Electrico</h1>
+        <h2 class="home__subtitle">Reportes por barrios en el municipio de Camuy</h2>
+        <div class="chart" id="plot_barrios"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    google.charts.load('current', {
+      'packages': ['corechart', 'bar', 'table']
+    });
+    google.charts.setOnLoadCallback(initChart);
+
+    function initChart() {
+      URL = "https://docs.google.com/spreadsheets/d/1ei_FxRWHzTWcNWmmKFf1LIByW71zYvIDImCon5hevyI/edit?usp=sharing";
+      var query = new google.visualization.Query(URL);
+      query.setQuery('select B,C');
+      query.send(function (response) {
+        handleQueryResponse(response);
+      });
+    }
+
+
+    function handleQueryResponse(response) {
+
+      var data = response.getDataTable();
+      var dataGroup = google.visualization.data.group(
+        data,
+
+        // group by column
+        [{
+          column: 0,
+          label: 'Barrio',
+          type: 'number'
+        }],
+
+        // agg cols
+        [{
+          aggregation: google.visualization.data.count,
+          column: 1,
+          label: 'Counts',
+          type: 'number'
+        }]
+      );
+
+      // Donutplot Barrios
+      var viewColumns = [0];
+      var aggColumns = [];
+
+      dataGroup.getDistinctValues(0).forEach(function (barrio, index) {
+        viewColumns.push({
+          calc: function (dt, row) {
+            if (dt.getValue(row, 1) === barrio) {
+              return dt.getValue(row, 2);
+            }
+            return null;
+          },
+          label: barrio,
+          type: 'number'
+        });
+
+        // Add aggregation column
+        aggColumns.push({
+          aggregation: google.visualization.data.sum,
+          column: index + 1,
+          label: barrio,
+          type: 'number'
+        });
+
+      });
+
+      // Add options
+      var options = {
+        pieHole: 0.4,
+        chartArea: { width: "100%", height: "100%" },
+        legend: {
+          position: "right",
+          alignment: "center",
+          textStyle: {
+            fontSize: 13,
+            color: "rgb(69, 69, 75)",
+            bold: "1"
+          }
+        },
+        backgroundColor: 'transparent'
+      };
+
+      // Plot Donutchart
+      var chart = new google.visualization.PieChart(document.getElementById('plot_barrios'));
+      chart.draw(dataGroup, options);
+
+      // Sectores
+
+      var data = response.getDataTable();
+      var sectoresGroup = google.visualization.data.group(
+        data,
+
+        // group by Barrio x Sector
+        [0, 1],
+
+        // agg cols
+        [{
+          aggregation: google.visualization.data.count,
+          column: 1,
+          label: 'Reportes',
+          type: 'number'
+        }]
+      );
+
+      // reusing vars
+      var viewColumns = [0];
+      var aggColumns = [];
+
+      sectoresGroup.getDistinctValues(1).forEach(function (sector, index) {
+        viewColumns.push({
+          calc: function (dt, row) {
+            if (dt.getValue(row, 1) === sector) {
+              return dt.getValue(row, 2);
+            }
+            return null;
+          },
+          label: sector,
+          type: 'number'
+        });
+
+        // Add aggregation column
+        aggColumns.push({
+          aggregation: google.visualization.data.sum,
+          column: index + 1,
+          label: sector,
+          type: 'number'
+        });
+      });
+
+
+
+      // Sort reports
+      sectoresGroup.sort({
+        column: 2,
+        desc: true
+      })
+
+      // Add table
+      var table = new google.visualization.Table(document.getElementById('table_sectores'));
+      table.draw(sectoresGroup, options);
+    }
+  </script>
+  <!--========== SCROLL REVEAL ==========-->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!--========== MAIN JS ==========-->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

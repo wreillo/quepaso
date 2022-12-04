@@ -1,209 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <meta charset="UTF-8">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      font-size: 16px;
-    }
+        <!--========== BOX ICONS ==========-->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-    html,
-    body,
-    .container,
-    .row {
-      width: auto;
-      height: auto;
-    }
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="assets/css/styles.css">
 
-    .container {
-      max-width: 100%;
-    }
+        <title>QuePaso Website</title>
+    </head>
+    <body>
 
-    button {
-      font-size: 16px;
-    }
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-chevron-up scrolltop__icon'></i>
+        </a>
 
-    .half {
-      position: fixed;
-      margin: 0;
-      width: 100% !important;
-      height: 100% ;
-      opacity: 0.05;
-    }
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo">#quepaso.info</a>
 
-    .bg {
-      background: url('https://raw.githubusercontent.com/wrodriguezz/quepaso/main/img/sinLuz.png') center center;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Inicio</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">Acerca</a></li>
+                        <li class="nav__item"><a href="#services" class="nav__link">Proceso</a></li>
+                        <li class="nav__item"><a href="#menu" class="nav__link">Reportes</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contactanos</a></li>
 
-    .form {
-      left: 50%;
-      overflow: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                    </ul>
+                </div>
 
-    h2,
-    form {
-      width: auto;
-    }
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
 
-    h2 {
-      padding-top: 16px;
-      text-align: center;
-      margin-top: 0;
-    }
+        <main class="l-main">
+            <!--========== Inicio ==========-->
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__data">
+                        <h1 class="home__title">QuePaso</h1>
+                        <h2 class="home__subtitle">Informando la comunidad sobre averías</h2>
+                        <a href="#menu" class="button">Ver más</a>
+                    </div>
+                    <img src="assets/img/pr_blackout_circular.gif" alt="" class="home__img" style="width:80%;height:95%">
+                </div>
+            </section>
+            
+            <!--========== Acerca ==========-->
+            <section class="about section bd-container" id="about">
+                <div class="about__container  bd-grid">
+                    <div class="about__data">
+                        <span class="section-subtitle about__initial">Autor</span>
+                        <h2 class="section-title about__initial">Desarrollado por un camuyano</h2>
+                        <p class="about__description">¡Disfruto ayudar a otros y aprender cosas nuevas! Me apasiona la ciencia y las iniciativas comunitarias.</p>
+                        <a href="https://www.wreillo.com/" class="button" target="_blank">Mas acerca del autor</a>
+                    </div>
 
-    form {
-      margin-right: auto;
-      margin-left: auto;
-      margin-top: 100px;
-      max-width: 400px;
-    }
+                    <img src="assets/img/wr_logo.svg" alt="" class="about__img" style="width:80%;height:95%">
+                </div>
+            </section>
 
-    .input-group {
-      margin-bottom: 30px;
-    }
+            <!--========== Proceso ==========-->
+            <section class="services section bd-container" id="services">
+                <span class="section-subtitle">Averias</span>
+                <h2 class="section-title">El portal permite reportar averias por sectores</h2>
 
-    .radio-group label {
-      display: inline-block;
-    }
+                <div class="services__container  bd-grid">
+                    <div class="services__content">
+                        <img src="assets/img/camuy_escudo.svg" style="width: 15%; height: 30%">
+                        <h3 class="services__title">Municipio</h3>
+                        <p class="services__description">Al momento solo se encuentra el municipio de Camuy.</p>
+                    </div>
 
-    @media screen and (max-width: 1024px) {
-      .half {
-        position: relative;
-        width: 50% !important;
-        height: auto;
-      }
+                    <div class="services__content">
+                        <img src="assets/img/hierarchical.svg" style="width: 20%; height: 30%">
+                        <h3 class="services__title">Localizacion</h3>
+                        <p class="services__description">Te permite reportar averias por barrio y sector.</p>
+                    </div>
 
-      .bg {
-        height: 30vh;
-      }
+                    <div class="services__content">
+                        <img src="assets/img/share_icon.svg" style="width: 20%; height: 30%;">
+                        <h3 class="services__title">Resultados</h3>
+                        <p class="services__description">Comparte los resultados en tu red social.</p>
+                    </div>
+                </div>
+            </section>
 
-      form {
-        padding-right: 12px;
-        padding-left: 12px;
-      }
-    }
-  </style>
-  <script>
-    // List de Barrios y Sectores
-    var townMetadata = {
-      "Abra Honda": ["Sect. Vargas*", "Camn. Santa Isabel*", "Sect. La Pica", "Camn. Estrella", "Sect. El Pino", "Sect. Capilla", "Sect. Aceitunal", "Sect. Matojillo", "Sect. Canta Gallo", "Sect. Foro Serrano*", "Sect. Carbones", "Camn. Crespo*", "Sect. La Brisa", "Sect. La Herradura", "Sect. Teodoro Ruiz", "Sect. Pozos", "Sect. Monroig", "Sect. El Saco"],
-      "Camuy Arriba": ["Sect. Amador", "Sect.Piquiñas**", "Sect. Sabana", "Sect. Palomar*", "Sect. Polvorín*", "Parc. Camuy Arriba", "Sect. Comercial Díaz", "Sect. El Judío", "Urb. Jardines de América", "Sect. Calvario*", "Urb. Brisas de la Sabana", "Sect. Padín", "Sect. Parcelas", "Sect. Hacienda, La Sabana", "Sect. Camuy Arriba", "Sect. Sal sipuedes", "Urb. Brisas del Valle"],
-      "Cibao": ["Sect. Ocasio", "Sect. Cibao Lugo", "Sect. Cuchillas", "Sect. Las 10 Cuerdas", "Sect. Magueyes", "Sect. EL Duque", "Sect. El Pitirre", "Sect. Soller", "Parc. Cibao", "Sect. Román**", "Sect. Parcelas"],
-      "Ciénagas": ["Sect. Palomar*", "Sect. Martínez*", "Camn. Santa Isabel*", "Sect. Hoyo Brujo", "Calle 4 Tramo", "Sect. Foro Serrano*", "Sect. Los Ríos", "Sect. Morales", "Sect. El Resbalón", "Sect. Carmín", "Camn. Cheo Soto", "Urb. Paseos del Sol", "Calle Palmas del Sol", "Sect. Jayuya", "Sect. Cuatro Calle", "Sect. Perello", "Urb. Alturas del Valle"],
-      "Membrillo": ["Urb. Estancias de Membrillo", "Sect. Membrillo Bajura", "Camn. Las Flores", "Urb. y Ext. Vista Verde", "Sect. Rabo del Buey", "Sect. Monte Iguina*", "Urb. Las Flores", "Urb. Jardines de Camuy", "Calle Cristo Viene", "Urb. Monte de Oro", "Urb. Los Peñones", "Calle los Riollanos", "Sect. La Ceiba Maracayo-2", "Urb. Alturas de Membrillo", "Calle La Ceiba", "Urb. Paseo Las Flores", "Reparto Lugo", "Reparto San Miguel", "Sect. Linares", "Sect. Los Méndez", "Urb. Alturas de Camuy", "Sect. Palmarito*", "Urb. Palmas del Mar", "Urb. Villas de Monte Cielo", "Urb. Colinas del Mar", "Sect. Los Hernández (Las 4 cuerdas)", "Urb. Paseo Las Flores", "Hog. Colinas Verdes"],
-      "Piedra Gorda": ["Sect. Ojo Del Agua", "Sect. Santa Bárbara", "Sect. Calvario*", "Sect. Mandeyes", "Sect. Palo Seco", "Parc. Piedra Gorda", "Sect. Plazuela", "Urb. Estancias del Sol", "Urb. Estancias Palmas del Sol"],
-      "Pueblo": ["Urb. Linda Vista", "Urb. Pedro N. Colberg", "Urb. Caban", "Maracayo", "Urb. Brisas de Camuy", "Urb. San Jose", "Urb. Alta Monte", "Urb. Alturas del Maestro", "Urb. El Maestro", "Vista Los Penones", "Camino Amador", "Calle Correo", "Calle Iguina", "Calle Perello", "Calle Luis Munoz Rivera", "Avenida Ferrocarril", "Urb. Villas Realejo", "Urb. Monte Verde", "Calle Esperanzal", "Urb. Villa Florencia", "Hog. Centro Manuel Acevedo Rosario", "Sect. Amadeo Santiago", "Sect. La Peña"],
-      "Puente": ["Sect. Alcantarilla", "Sect. La Pica", "Parcelas Zarza", "Urb. Los Rodríguez", "Sect. Peña Militar", "Ave. Rotario", "Com. Villa Del Carmen", "Urb. y Ext.Del Carmen", "Urb. Haciendas De Camuy", "Sect. Aljibe Ramos", "Camn. al Río", "Calle Ana María", "Sect. Los Vega*", "Reparto Méndez", "Urb. Paseos de Camuy", "Ave. Ino Román", "Calle Isabel Jiménez", "Calle Peter Alfond", "Urb. Veredas de Camuy", "Calle Esperanzal", "Sect. Zarza", "Rpto. De Jesús", "Sect. La Peña", "Brusi", "Sect. La Ceiba Maracayo-1", "Carr. Almacén de Azúcar, Res. Bethel", "Res. San Enrique I y II", "Ave. Baltazar Jiménez Méndez", "Urb. Villa Florencia", "Ave. Pascual Rosa", "Sect. Lolo Forti", "Urb. Bello Monte", "Sect. Vista al Mar", "Sect. Vista Los Peñones", "Sect. Morales", "Calle José Rosa Cordero", "Calle Genaro Soto", "Sect. Puente Peña", "Calle Los Rosa"],
-      "Puertos": ["Camn. Vereda de Quebrada", "Sect. Los Romanes", "Sect. Puertos Arriba", "Sect. Puertos Abajo", "Sect. Lugo", "Sect. Los Méndez", "Sect. Rincón", "Camn. Eduardo “Tato” González", "Sect. Los Alamedas", "Hog. Emmanuel Aging Center"],
-      "Quabrada": ["Sect. Cayey", "Sect. Echegaray", "Sect. Palmer", "Sect. Sorondo", "Sect. Figueroa", "Sect. Villanueva", "Sect. González", "Parc. Quebrada (Viejas y Nuevas)", "Sect. Pellejas", "Sect. Acabá", "Sect. Bosque", "Sect. El Expreso", "Sect. La Campana", "Sect. Arce", "Sect. El 19", "Sect. Ríos", "Sect. La Victoria", "Sect. Rivera", "Sect. La Silveria", "Sect. Los Méndez", "Sect. Manolo Pérez", "Sect. Florenciani", "Sect. Legarreta", "Sect. Los Vargas", "Sect. Medero", "Sect. Quiles", "Sect. Los González", "Sect. Román, Sect. El Pare", "Sect. Santos Torres**"],
-      "Santiago": ["Sect. Vega", "Sect. Medianía", "Sect. Péndula"],
-      "Yeguada": ["Sect. Bajura", "Camn. Arias", "Sect. Ciento Cuatro (104)", "Hacienda Rivera", "Reparto Húcares", "Sect. Arias", "Sect. Yeguada", "Sect. Monte Iguina*", "Sect. Pepe Nieves", "Sect. Cordero", "Sect. Juan López", "Sect. La Cruz", "Sect. Palmarito*", "Urb. Quintas de Camuy", "Repto. Cruz Jiménez", "Calle Pinar del Mar", "Sect. Cajigas", "Sect. Polvorín*", "Sect. Haciendas del Norte", "Urb. Casa Marbella"],
-      "Zanja": ["Com. Pueblo Nuevo", "Sect. Alianza", "Parc. Espiet", "Sect. Zanja Plás", "Sect. Vargas*", "Camn. Crespo*", "Parc. Nuevas", "Sect. Los Ramos", "Sect. Tinito Delgado", "Sect. Vieques", "Rpto. Bello", "Sect. Los Vega*", "Sect. Los Siete", "Sect. Solares Quiñones", "Sect. Martínez*", "Rpto. Monserrate* (Solares Vidot)", "Sect. Los Siete", "Sect. Plás", "Sect. Morell", "Estancias de Vieques", "Sect. Pipo Crespo", "Sect. Morales"]
-    };
-    
-    // Parse options for dropdown menu
-    window.onload = function () {
-      var barrioSel = document.getElementById("camuy_barrios");
-      var sectorSel = document.getElementById("camuy_sectores");
-      var sectorValue = sectorSel.value;
-      for (var x in townMetadata) {
-        barrioSel.options[barrioSel.options.length] = new Option(x, x);
-      }
+            <!--========== REPORTES ==========-->
+            <section class="menu section bd-container" id="menu">
+                <span class="section-subtitle">Acciones</span>
+                <h2 class="section-title">Explora e interactuá con el portal</h2>
 
-      barrioSel.onchange = function () {
-        sectorSel.length = 1;
-        if (this.selectedIndex < 1) return;
-        var ft = townMetadata[this.value];
-        for (var y in townMetadata[this.value]) {
-          sectorSel.options[sectorSel.options.length] = new Option(ft[y], ft[y]);
-        }
-      }
+                <div class="menu__container bd-grid">
+                    <div class="button menu__content">
+                        <a href="camuy/index.html" target="_blank">
+                        <br><img src="assets/img/pin.svg" alt="" class="menu__img">
+                        <h3 class="menu__name">Reporta</h3>
+                        <span class="menu__detail" style="color:rgb(69, 69, 75)">¿No tienes luz en tu area? Reportarlo aquí</span>
+                        </a>
+                    </div>
 
-      barrioSel.onchange();
-    }
-  </script>
-</head>
+                    <div class="button menu__content">
+                        <a href="#home">
+                        <img src="assets/img/report.svg" alt="" class="menu__img" style="height: 40%">
+                        <h3 class="menu__name">Localización</h3>
+                        <span class="menu__detail" style="color:rgb(69, 69, 75)">Descubre si han reportado averías en tu barrio o sector</span>
+                        </a>
+                    </div>
+                    
+                    <div class="button menu__content">
+                        <a href="#home">
+                        <img src="assets/img/share_icon.svg" alt="" class="menu__img">
+                        <h3 class="menu__name">Resultados</h3>
+                        <span class="menu__detail" style="color:rgb(69, 69, 75)">Comparte los resultados en tu red social</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-<body>
-  <div class="container">
-    <main class="row">
-      <!-- form -->
-      <h2> ¿Sin servicio eléctrico en Camuy? ¡Repórtalo! </h1>
-        <form>
-          <!-- Barrio -->
-          <div class="input-group">
-            <label for="camuy_barrios">Barrio</label>
-            <select class="u-full-width" id="camuy_barrios" required>
-              <option value="">-- select --</option>
-            </select>
-          </div>
+            <!--===== MOVIL =======-->
+            <section class="app section bd-container">
+                <div class="app__container bd-grid">
+                    <div class="app__data">
+                        <span class="section-subtitle app__initial">Accessible</span>
+                        <h2 class="section-title app__initial">Navega el portal desde tu móvil</h2>
+                        <p class="app__description">Puedes utilizar tu teléfono celular y navegar el portal fácilmente.</p>
+                    </div>
 
-          <!-- Sector-->
-          <div class="input-group">
-            <label for="camuy_sectores">Sector</label>
-            <select class="u-full-width" id="camuy_sectores" required>
-              <option value="">-- select --</option>
-            </select>
-          </div>
+                    <img src="assets/img/movil-view.png" alt="" class="app__img" style="width: 80%; height: 100%">
+                </div>
+            </section>
 
-          <button type="button" id="submit" onclick="openWindow()" class="button-primary u-full-width">Confirm</button>
+            <!--========== CONTACTANOS ==========-->
+            <section class="contact section bd-container" id="contact">
+                <div class="contact__container bd-grid">
+                    <div class="contact__data">
+                        <span class="section-subtitle contact__initial">Hablemos</span>
+                        <h2 class="section-title contact__initial">Contáctame</h2>
+                        <p class="contact__description">¿Tienes alguna sugerancia? ¿Quieres anadir tu municipio al portal? Por favor, no dudes en contarme.</p>
+                    </div>
 
-        </form>
-    </main>
+                    <div class="contact__button">
+                        <a href="mailto:quepaso.info@gmail.com" class="button">Contáctame ahora</a>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-  </div>
-  <script>
-    function alertStatus() {
-      $('#submit').attr('disabled', 'disabled');
-      setTimeout(enable, 1000);
-      $('#doneStatus').hide();
-      $('#loadingStatus').show();
-    }
+        <!--========== FOOTER ==========-->
+        <footer class="footer section bd-container">
+            <div class="footer__container bd-grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">QuePaso</a>
+                    <span class="footer__description">Crowdsourcing</span>
+                    <div>
+                        <a href="https://www.facebook.com/quepaso.info" target="_blank" class="footer__social"><i class='bx bxl-facebook'></i></a>
+                        <a href="https://www.instagram.com/quepasa.info" target="_blank" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                        <a href="https://twitter.com/quepaso_info" target="_blank" class="footer__social"><i class='bx bxl-twitter'></i></a>
+                    </div>
+                </div>
 
-    function openWindow() {
-      var OR = document.getElementById("camuy_barrios").value;
-      var SZ = document.getElementById("camuy_sectores").value;
-      if (OR == '' || SZ == '') {
-        alert('Por favor seleccione un barrio y sector'); return false;
-      } else {
-        function enable() {
-          $('#submit').removeAttr('disabled');
-        }
-        // Barrio
-        var vBarrio = $('#camuy_barrios').val() || 'No Provisto';
-        // Sector
-        var vSector = $('#camuy_sectores').val() || 'No Provisto';
-        // Post
-        var data = {
-          'entry.120055467': vBarrio,
-          'entry.238787964': vSector
-        };
-        $.ajax({
-          type: 'POST',
-          url: 'https://docs.google.com/forms/d/e/1FAIpQLSfU_22xDcb4_yuJnsWsUkngMdOQxBwv4koItkyQy2JyD3vV8A/formResponse',
-          data: data,
-          contentType: 'application/json',
-          dataType: 'jsonp',
-          complete: function () {
-            window.alert('Gracias, su respuesta ha sido registrada');
-            window.location.href = "reports.html";
-          }
-        });
-      }
-    }
-  </script>
-</body>
+                <div class="footer__content">
+                    <h3 class="footer__title">Información</h3>
+                    <ul>
+                        <li><a href="https://github.com/wrodriguezz/quepaso" class="footer__link">Codigo</a></li>
+                        <li><a href="#contact" class="footer__link">Contactame</a></li>
+                        <li><a href="#" class="footer__link">Privacy policy</a></li>
+                        <li><a href="#" class="footer__link">Terms of services</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
 
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
