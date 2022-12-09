@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  
+
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
     nonce="njQzd8Cw"></script>
@@ -31,8 +31,8 @@
   <header class="l-header" id="header" style="font-size: 13px;">
     <nav class="nav bd-container">
       <a href="#" class="nav__logo">#quepaso.info</a>
-      <div class="fb-like" data-href="https://www.facebook.com/quepaso.info" data-width=""
-      data-layout="standard" data-action="like" data-size="small" data-share="true" style="text-align: center"></div>
+      <div class="fb-like" data-href="https://www.facebook.com/quepaso.info" data-width="" data-layout="standard"
+        data-action="like" data-size="small" data-share="true" style="text-align: center"></div>
 
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
@@ -45,16 +45,52 @@
       </div>
     </nav>
   </header>
-  <!-- Donut chart-->
-  <section class="home" id="home">
-    <div style="padding-top: 50px; padding-left: 20px;">
-      <div class="home__data">
-        <h1 class="home__title">Areas sin Servicio Electrico</h1>
-        <h2 class="home__subtitle">Reportes por barrios en el municipio de Camuy</h2>
+
+  <section style="padding-top: 50px; padding-left: 50px;">
+    <div class="home__data">
+      <h1 style="text-align: center">Areas sin Servicio Electrico</h1>
+    </div>
+
+    <div class="rowReportes">
+      <div class="colReportes">
+        <h3>Reportes por barrios en el municipio de Camuy</h3>
         <div class="chart" id="plot_barrios"></div>
       </div>
+      <div class="colReportes">
+        <div class="reportes__content">
+          <span style="color: #45C4B0">
+            <h5>Importante</h5>
+            <p>- Reportes son elimados luego de 72 horas</p>
+          </span>
+        </div>
+        <br>
+        <div class="reportes__content">
+          <span style="color: #00d2ff">
+            <h5>Datos Actualizados</h5>
+            <p>- Pie chart es actualizado en tiempo real</p>
+          </span>
+        </div>
+        <br>
+        <div class="reportes__content">
+          <a href="https://www.buymeacoffee.com/wrodriguezz" target="_blank">
+            <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee"
+              style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;">
+            <br>
+            <p style="color: #f69552; font-size: 15px">Apoya esta y otras iniciativas locales</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="rowReportes">
+      <h3>Reportes por sectores en el municipio de Camuy</h3>
+      <br>
+      <div style="padding-left: 30px;" id="table_sectores"></div>
     </div>
   </section>
+
+
+
 
   <script>
     google.charts.load('current', {
@@ -123,14 +159,14 @@
       // Add options
       var options = {
         pieHole: 0.4,
-        chartArea: { width: "100%", height: "auto" },
+        chartArea: { width: "100%", height: "80%" },
         legend: {
           position: "right",
           alignment: "center",
           textStyle: {
             fontSize: 13,
             color: "rgb(69, 69, 75)",
-            bold: "1"
+            bold: "1",
           }
         },
         backgroundColor: 'transparent'
@@ -193,7 +229,7 @@
 
       // Add table
       var table = new google.visualization.Table(document.getElementById('table_sectores'));
-      table.draw(sectoresGroup, options);
+      table.draw(sectoresGroup);
     }
   </script>
   <!--========== SCROLL REVEAL ==========-->
