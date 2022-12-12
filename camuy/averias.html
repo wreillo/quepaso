@@ -46,17 +46,29 @@
     </nav>
   </header>
 
-  <section style="padding-top: 50px; padding-left: 50px;">
+  <section style="padding-top: 50px; padding-left: 30px;">
     <div class="home__data">
       <h1 style="text-align: center">Areas sin Servicio Eléctrico</h1>
     </div>
-
     <div class="rowReportes">
       <div class="colReportes">
         <h3>Reportes por barrios en el municipio de Camuy</h3>
         <div class="chart" id="plot_barrios"></div>
       </div>
       <div class="colReportes">
+        <div class="rowReportes">
+          <h3>Reportes por sectores en el municipio de Camuy</h3>
+          <br>
+          <div style="padding-left: 30px;" id="table_sectores"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="rowReportes" style="padding-left: 30px">
+      <div class="colReportes">
+        <!-- Coffee -->
         <div class="reportes__content">
           <a href="https://www.buymeacoffee.com/wrodriguezz" target="_blank">
             <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee"
@@ -66,40 +78,42 @@
           </a>
         </div>
         <br>
+        <!-- Reportes-->
         <div class="reportes__content">
           <span style="color: #45C4B0">
             <h5>Reportes</h5>
             <p style="font-size: 15px">- Elimados lunes a media noche</p>
           </span>
-        </div>
-        <br>
+        </div>   
+      </div>
+
+      <div class="colReportes">
+        <!-- Datos actualizados -->
         <div class="reportes__content">
           <span style="color: #00d2ff">
-            <h5>Datos Actualizados</h5>
+            <h5>Datos</h5>
             <p style="font-size: 15px">- Datos actualizado en tiempo real</p>
           </span>
         </div>
         <br>
+        <!-- Mapa -->
         <div class="reportes__content">
           <a href="./reportes.html">
             <span style="color: #B28DFF">
               <h5>Mapa</h5>
-              <p style="font-size: 15px">- Presione aquí para regresar al mapa con reportes</p>
+              <p style="font-size: 15px">- Presione aquí para ver mapa con reportes</p>
             </span>
           </a>
         </div>
       </div>
     </div>
-
-    <div class="rowReportes">
-      <h3>Reportes por sectores en el municipio de Camuy</h3>
-      <br>
-      <div style="padding-left: 30px;" id="table_sectores"></div>
-    </div>
   </section>
 
-
-
+  <script>
+     var timer = setTimeout(function() {
+            window.location='./reportes.html'
+        }, 60000);
+  </script>
 
   <script>
     google.charts.load('current', {
