@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Días Feriados</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Karma:300|Raleway:900&display=swap" rel="stylesheet">
@@ -12,15 +13,18 @@
     <div class="container">
         <div style="padding-left: 10px;">
             <h1>Días feriados en Puerto Rico (2023)</h1>
-            <h3>Toca o pasa el cursor sobre la imagen para más información.</h3>
-            <!-- tgif switch -->
-            Ver viernes feriados en el 2023: <label class="switch">
-                <input type="checkbox" id="togBtn">
-                <div class="slider round">
-                    <span id='on' class="on">TGIF</span>
-                    <span id='off' class="off">OFF</span>
-                </div>
-            </label>
+            <p style="font-size: 20px;">Toca o pasa el cursor sobre la imagen para más información.</p>
+            <div style="font-size: 20px;" id="comment">
+                <p>Ver viernes feriados en el 2023</p>
+                <!-- tgif switch -->
+                <label class="switch">
+                    <input type="checkbox" id="togBtn">
+                    <div class="slider round">
+                        <span id='on' class="on">TGIF</span>
+                        <span id='off' class="off">OFF</span>
+                    </div>
+                </label>
+            </div>
         </div>
 
         <!-- Example -->
@@ -285,11 +289,19 @@
 
     };
 
-    setTimeout(function () {
-        document.getElementById('togBtn').click();
-    }, 10000)
 
-    
+    var bgopacity = 1.0
+    var bgfade = function () {
+        var comment = document.getElementById("comment");
+        bgopacity -= 0.02
+        comment.style.backgroundColor = "rgba(255, 242, 130, " + bgopacity + ")";
+        if (bgopacity >= 0) {
+            setTimeout(bgfade, 60);
+        }
+    }
+    bgfade();
+
+
 </script>
 
 </html>
