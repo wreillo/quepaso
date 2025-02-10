@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_eb397d2689ff0c0d01bbeb8f9b4da4b1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_eb397d2689ff0c0d01bbeb8f9b4da4b1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_eb397d2689ff0c0d01bbeb8f9b4da4b1 = L.map(
+                "map_eb397d2689ff0c0d01bbeb8f9b4da4b1",
+                {
+                    center: [18.2208, -66.5901],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_19fb47471d536a170fb920db8ed2507a = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_19fb47471d536a170fb920db8ed2507a.addTo(map_eb397d2689ff0c0d01bbeb8f9b4da4b1);
+        
+    
+            var marker_b31ac558e2fd19f490dbf483c382d1cb = L.marker(
+                [18.4671, -66.0895],
+                {
+}
+            ).addTo(map_eb397d2689ff0c0d01bbeb8f9b4da4b1);
+        
+    
+            var icon_bfbf1c0d918e4a917d657e4fc25c5cfc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_b31ac558e2fd19f490dbf483c382d1cb.setIcon(icon_bfbf1c0d918e4a917d657e4fc25c5cfc);
+        
+    
+        var popup_d941f5f10dc8b6d601456b31105c266f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_80ce56c89c29e648f25f11861f5c2a98 = $(`<div id="html_80ce56c89c29e648f25f11861f5c2a98" style="width: 100.0%; height: 100.0%;">Balneario El Escambrón - 0.0 mm de lluvia en la última hora</div>`)[0];
+                popup_d941f5f10dc8b6d601456b31105c266f.setContent(html_80ce56c89c29e648f25f11861f5c2a98);
+            
+        
+
+        marker_b31ac558e2fd19f490dbf483c382d1cb.bindPopup(popup_d941f5f10dc8b6d601456b31105c266f)
+        ;
+
+        
+    
+    
+            var marker_f03544b69ebc42f5e054264fcf7706c8 = L.marker(
+                [18.3412, -66.1597],
+                {
+}
+            ).addTo(map_eb397d2689ff0c0d01bbeb8f9b4da4b1);
+        
+    
+            var icon_b1ac8c14f7748e24bb50bd2609e26229 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_f03544b69ebc42f5e054264fcf7706c8.setIcon(icon_b1ac8c14f7748e24bb50bd2609e26229);
+        
+    
+        var popup_0729cd82393eccf5d5efd698de5611ad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4130b4780cf0b6729b99e2b140479301 = $(`<div id="html_4130b4780cf0b6729b99e2b140479301" style="width: 100.0%; height: 100.0%;">Río La Plata - 0.0 mm de lluvia en la última hora</div>`)[0];
+                popup_0729cd82393eccf5d5efd698de5611ad.setContent(html_4130b4780cf0b6729b99e2b140479301);
+            
+        
+
+        marker_f03544b69ebc42f5e054264fcf7706c8.bindPopup(popup_0729cd82393eccf5d5efd698de5611ad)
+        ;
+
+        
+    
+    
+            var marker_b169ecfc71d28326d64ee8f408035344 = L.marker(
+                [18.2844, -66.2813],
+                {
+}
+            ).addTo(map_eb397d2689ff0c0d01bbeb8f9b4da4b1);
+        
+    
+            var icon_77518f66b0a807c6893a6e4d0f90bac3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_b169ecfc71d28326d64ee8f408035344.setIcon(icon_77518f66b0a807c6893a6e4d0f90bac3);
+        
+    
+        var popup_ee55976cb3a3dac4a1e8ec7ede219ff9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e5be6822ac9f7e14770a52e8f6693fb = $(`<div id="html_8e5be6822ac9f7e14770a52e8f6693fb" style="width: 100.0%; height: 100.0%;">Charco Azul - 0.0 mm de lluvia en la última hora</div>`)[0];
+                popup_ee55976cb3a3dac4a1e8ec7ede219ff9.setContent(html_8e5be6822ac9f7e14770a52e8f6693fb);
+            
+        
+
+        marker_b169ecfc71d28326d64ee8f408035344.bindPopup(popup_ee55976cb3a3dac4a1e8ec7ede219ff9)
+        ;
+
+        
+    
+    
+            var marker_e75df0486d3072c12a200ac3f809b917 = L.marker(
+                [18.3501, -67.1552],
+                {
+}
+            ).addTo(map_eb397d2689ff0c0d01bbeb8f9b4da4b1);
+        
+    
+            var icon_8a7196f31877bcef12f69ec9e566eea2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_e75df0486d3072c12a200ac3f809b917.setIcon(icon_8a7196f31877bcef12f69ec9e566eea2);
+        
+    
+        var popup_4d7f6501a4aec26ada6dec2985a74c5e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_599d54e84eca8383636663cb8e2e6892 = $(`<div id="html_599d54e84eca8383636663cb8e2e6892" style="width: 100.0%; height: 100.0%;">Gozalandia - 0.0 mm de lluvia en la última hora</div>`)[0];
+                popup_4d7f6501a4aec26ada6dec2985a74c5e.setContent(html_599d54e84eca8383636663cb8e2e6892);
+            
+        
+
+        marker_e75df0486d3072c12a200ac3f809b917.bindPopup(popup_4d7f6501a4aec26ada6dec2985a74c5e)
+        ;
+
+        
+    
+    
+            var marker_9a1ac4247061d5b3bdb768eafec0b747 = L.marker(
+                [18.3133, -65.6831],
+                {
+}
+            ).addTo(map_eb397d2689ff0c0d01bbeb8f9b4da4b1);
+        
+    
+            var icon_04318f47c5d1aad8c6a4d5669cf104b3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_9a1ac4247061d5b3bdb768eafec0b747.setIcon(icon_04318f47c5d1aad8c6a4d5669cf104b3);
+        
+    
+        var popup_c601d833523e8cfd97eaf4f9f9d7e0b9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da00824cb86daa377d01d37fa77bef50 = $(`<div id="html_da00824cb86daa377d01d37fa77bef50" style="width: 100.0%; height: 100.0%;">El Yunque - 0.0 mm de lluvia en la última hora</div>`)[0];
+                popup_c601d833523e8cfd97eaf4f9f9d7e0b9.setContent(html_da00824cb86daa377d01d37fa77bef50);
+            
+        
+
+        marker_9a1ac4247061d5b3bdb768eafec0b747.bindPopup(popup_c601d833523e8cfd97eaf4f9f9d7e0b9)
+        ;
+
+        
+    
+    
+            var marker_d8532e3edc4eb3dceee3dd83085fe2c9 = L.marker(
+                [18.0, -67.0],
+                {
+}
+            ).addTo(map_eb397d2689ff0c0d01bbeb8f9b4da4b1);
+        
+    
+            var div_icon_4de834e37174a986f737c27adb30b595 = L.divIcon({
+  "html": "\u003cdiv style=\"position: fixed; bottom: 10px; right: 10px; background-color: white; padding: 5px; font-size: 12px;\"\u003e\u00daltima actualizaci\u00f3n: 2025-02-10 15:53:35\u003c/div\u003e",
+  "className": "empty",
+});
+            marker_d8532e3edc4eb3dceee3dd83085fe2c9.setIcon(div_icon_4de834e37174a986f737c27adb30b595);
+        
+</script>
+</html>
