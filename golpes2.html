@@ -38,8 +38,18 @@
     <script>
     async function fetchData() {
         try {
-            const response = await fetch( + GAS_URL + );
+            const url = https://script.google.com/macros/s/AKfycbxWXhwSgP0T1a7x1Sdc4ntI75GiM4orqAE2vzUQHHw_Ig2GSQDPn1z5uzhCi5xNdHBVMA/exec?t=" + new Date().getTime();
+            const response = await fetch(url, {
+                method: "GET",
+                mode: "cors"
+            });
             const data = await response.json();
+            console.log("Fetched Data:", data);
+
+            if (!data.locations || data.locations.length === 0) {
+                console.warn("No locations found!");
+                return;
+            }
 
             // Clear existing layers
             window.map.eachLayer(layer => {
@@ -57,8 +67,15 @@
             });
 
             // Add Heatmap
-            let heatData = data.locations.map(loc => [loc.lat, loc.lon, loc.lluvia]);
-            L.heatLayer(heatData, { radius: 15, blur: 10 }).addTo(window.map);
+            let heatData = data.locations
+                .filter(loc => loc.lluvia > 0)
+                .map(loc => [loc.lat, loc.lon, loc.lluvia]);
+
+            if (heatData.length > 0) {
+                L.heatLayer(heatData, { radius: 15, blur: 10 }).addTo(window.map);
+            } else {
+                console.warn("No heatmap data available (all lluvia values are 0).");
+            }
 
             // Update Last Updated Time
             document.getElementById("last-update").innerText = "Última actualización: " + data.last_update;
@@ -79,8 +96,8 @@
     window.onload = () => {
         window.map = L.map('map').setView([18.2208, -66.5901], 10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(window.map);
-        fetchData();
-        setInterval(fetchData, 60000); // Refresh data every minute
+        setTimeout(fetchData, 2000); // Delay fetching by 2 sec to ensure map loads
+        setInterval(fetchData, 60000);
     };
     </script>
     
