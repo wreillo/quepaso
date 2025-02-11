@@ -1,0 +1,89 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Live Flood Risk Map</title>
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+            <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+            <style>
+                #map { height: 90vh; }
+                #alert-banner {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    background-color: red;
+                    color: white;
+                    text-align: center;
+                    font-size: 18px;
+                    padding: 10px;
+                    font-weight: bold;
+                }
+                #last-update {
+                    position: fixed;
+                    bottom: 10px;
+                    right: 10px;
+                    background-color: white;
+                    padding: 5px;
+                    font-size: 12px;
+                }
+            </style>
+        </head>
+        <body>
+            <div id="alert-banner"></div>
+            <div id="map"></div>
+            <div id="last-update">Última actualización: Cargando...</div>
+            
+    <script>
+    async function fetchData() {
+        try {
+            const response = await fetch( + GAS_URL + );
+            const data = await response.json();
+
+            // Clear existing layers
+            window.map.eachLayer(layer => {
+                if (layer instanceof L.Marker || layer instanceof L.TileLayer) return;
+                window.map.removeLayer(layer);
+            });
+
+            // Add new markers
+            data.locations.forEach(loc => {
+                let color = loc.lluvia > 10 ? "red" : "blue";
+                L.marker([loc.lat, loc.lon], {
+                    icon: L.divIcon({ html: `<div style='background-color: ${color}; width: 12px; height: 12px; border-radius: 50%;'></div>` }),
+                    title: `${loc.nombre} - ${loc.lluvia} mm`
+                }).addTo(window.map);
+            });
+
+            // Add Heatmap
+            let heatData = data.locations.map(loc => [loc.lat, loc.lon, loc.lluvia]);
+            L.heatLayer(heatData, { radius: 15, blur: 10 }).addTo(window.map);
+
+            // Update Last Updated Time
+            document.getElementById("last-update").innerText = "Última actualización: " + data.last_update;
+
+            // Display Alert if Needed
+            let alertBanner = document.getElementById("alert-banner");
+            if (data.alert) {
+                alertBanner.innerText = data.alert;
+                alertBanner.style.display = "block";
+            } else {
+                alertBanner.style.display = "none";
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    window.onload = () => {
+        window.map = L.map('map').setView([18.2208, -66.5901], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(window.map);
+        fetchData();
+        setInterval(fetchData, 60000); // Refresh data every minute
+    };
+    </script>
+    
+        </body>
+        </html>
+        
